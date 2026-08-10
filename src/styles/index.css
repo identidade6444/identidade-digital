@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+@config '../../tailwind.config.ts';
+
+:root {
+  --color-primary-cyan: #00fcff;
+  --color-primary-blue: #0138eb;
+  --color-accent-orange: #ff6200;
+  --color-accent-yellow: #ffed00;
+  --color-neutral-white: #ffffff;
+  --color-neutral-dark: #0f172a;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--color-neutral-dark);
+  background-color: var(--color-neutral-white);
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+::selection {
+  background-color: var(--color-accent-orange);
+  color: var(--color-neutral-white);
+}
