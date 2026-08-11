@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { HiArrowRight } from 'react-icons/hi'
 import { buildWhatsAppLink } from '../lib/constants'
 import { useAnchorScroll } from '../hooks/useAnchorScroll'
-import logoHero from '../assets/logo-hero.png'
+import HeroLogoMark from '../components/HeroLogoMark'
 
 const Hero = () => {
   const scrollToAnchor = useAnchorScroll()
@@ -62,14 +62,14 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        <motion.img
-          src={logoHero}
-          alt="Identidade Digital"
+        <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
-          className="h-40 w-auto shrink-0 sm:h-52 lg:h-64 xl:h-72"
-        />
+          className="shrink-0"
+        >
+          <HeroLogoMark className="h-40 w-auto sm:h-52 lg:h-64 xl:h-72" />
+        </motion.div>
       </div>
     </section>
   )
