@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { HiArrowRight } from 'react-icons/hi'
 import { buildWhatsAppLink } from '../lib/constants'
 import { useAnchorScroll } from '../hooks/useAnchorScroll'
+import logoHero from '../assets/logo-hero.png'
 
 const Hero = () => {
   const scrollToAnchor = useAnchorScroll()
@@ -22,7 +23,7 @@ const Hero = () => {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-6xl px-6 py-16">
+      <div className="relative mx-auto flex max-w-6xl flex-col-reverse items-center gap-10 px-6 py-16 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -60,6 +61,15 @@ const Hero = () => {
             </a>
           </div>
         </motion.div>
+
+        <motion.img
+          src={logoHero}
+          alt="Identidade Digital"
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
+          className="h-40 w-auto shrink-0 sm:h-52 lg:h-64 xl:h-72"
+        />
       </div>
     </section>
   )
