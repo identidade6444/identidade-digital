@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { HiArrowRight } from 'react-icons/hi'
 import { buildWhatsAppLink } from '../lib/constants'
 import { useAnchorScroll } from '../hooks/useAnchorScroll'
-import logoOfficial from '../assets/logo-official.jpg'
+import logoTransparent from '../assets/logo-transparent.png'
 
 const Hero = () => {
   const scrollToAnchor = useAnchorScroll()
@@ -62,18 +62,14 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        <motion.div
+        <motion.img
+          src={logoTransparent}
+          alt="Identidade Digital"
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
-          className="shrink-0 overflow-hidden rounded-3xl shadow-2xl"
-        >
-          <img
-            src={logoOfficial}
-            alt="Identidade Digital"
-            className="h-40 w-40 object-cover sm:h-52 sm:w-52 lg:h-64 lg:w-64 xl:h-72 xl:w-72"
-          />
-        </motion.div>
+          className="h-40 w-auto shrink-0 sm:h-52 lg:h-64 xl:h-72"
+        />
       </div>
     </section>
   )
