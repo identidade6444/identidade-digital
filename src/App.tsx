@@ -4,6 +4,7 @@ import Hero from './sections/Hero'
 import About from './sections/About'
 import Services from './sections/Services'
 import Portfolio from './sections/Portfolio'
+import Clients from './sections/Clients'
 import Testimonials from './sections/Testimonials'
 import FinalCTA from './sections/FinalCTA'
 import Footer from './sections/Footer'
@@ -17,6 +18,7 @@ function App() {
         <About />
         <Services />
         <Portfolio />
+        <Clients />
         <Testimonials />
         <FinalCTA />
       </main>
