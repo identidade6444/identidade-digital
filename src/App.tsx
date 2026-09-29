@@ -1,4 +1,6 @@
 import { ReactLenis } from 'lenis/react'
+import { MotionConfig } from 'framer-motion'
+import { ScrollProgress, CursorGlow } from './components/fx'
 import Header from './components/Header'
 import Hero from './sections/Hero'
 import About from './sections/About'
@@ -12,6 +14,9 @@ import Footer from './sections/Footer'
 function App() {
   return (
     <ReactLenis root options={{ lerp: 0.1, duration: 1.2, smoothWheel: true }}>
+      <MotionConfig reducedMotion="user">
+      <ScrollProgress />
+      <CursorGlow />
       <Header />
       <main>
         <Hero />
@@ -23,6 +28,7 @@ function App() {
         <FinalCTA />
       </main>
       <Footer />
+      </MotionConfig>
     </ReactLenis>
   )
 }

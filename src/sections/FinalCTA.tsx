@@ -18,9 +18,9 @@ const FinalCTA = () => {
 
       <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
+          initial={{ opacity: 0, y: 60, filter: 'blur(8px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          viewport={{ once: false, amount: 0.4 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           <h2 className="font-display text-3xl font-bold text-neutral-white sm:text-4xl">
@@ -42,9 +42,9 @@ const FinalCTA = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
+          initial={{ opacity: 0, y: 60, filter: 'blur(8px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          viewport={{ once: false, amount: 0.4 }}
           transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
           className="flex justify-center lg:justify-end"
         >

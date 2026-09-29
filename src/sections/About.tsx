@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { TiltCard } from '../components/fx'
 import { HiOutlineLightBulb, HiOutlineUserGroup, HiOutlineChartBar, HiOutlineSparkles } from 'react-icons/hi'
 
 const DIFERENCIAIS = [
@@ -33,9 +34,9 @@ const About = () => {
     <section id="sobre" className="bg-neutral-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          initial={{ opacity: 0, y: 60, filter: 'blur(8px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="mx-auto max-w-3xl text-center"
         >
@@ -56,12 +57,14 @@ const About = () => {
           {DIFERENCIAIS.map((item, index) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              style={{ transformPerspective: 1000 }}
+              initial={{ opacity: 0, y: 80, rotateX: -35, filter: 'blur(8px)' }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0, filter: 'blur(0px)' }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.5, delay: index * 0.08, ease: 'easeOut' }}
-              className="rounded-2xl border border-neutral-dark/10 p-6 transition-shadow hover:shadow-lg"
+              className="h-full"
             >
+              <TiltCard className="h-full rounded-2xl border border-neutral-dark/10 bg-neutral-white p-6 transition-shadow hover:shadow-2xl hover:shadow-primary-blue/20">
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary-blue/10 text-primary-blue">
                 <item.icon size={26} aria-hidden="true" />
               </div>
@@ -71,6 +74,7 @@ const About = () => {
               <p className="mt-2 font-body text-sm leading-relaxed text-neutral-dark/70">
                 {item.description}
               </p>
+              </TiltCard>
             </motion.div>
           ))}
         </div>
