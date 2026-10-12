@@ -54,7 +54,7 @@ p{margin:0}
 .wrap{max-width:1360px;margin:0 auto;padding-inline:var(--gutter)}
 .eyebrow{font:600 12px/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);display:inline-flex;align-items:center;gap:10px}
 .eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--orange),var(--yellow))}
-.sec{padding-block:clamp(72px,10vw,128px);position:relative}
+.sec{padding-block:clamp(72px,10vw,128px);position:relative;scroll-margin-top:64px}
 .sec-head{display:grid;gap:16px;max-width:760px;margin-bottom:clamp(36px,5vw,56px)}
 .sec-head h2{font-size:clamp(32px,4.4vw,52px);line-height:1.05;letter-spacing:-1px;font-weight:700}
 .sec-head p{color:var(--mist);font-size:17px;max-width:62ch}
@@ -197,6 +197,30 @@ p{margin:0}
 .diff .k svg{width:20px;height:20px;stroke:var(--white);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .diff:nth-child(2) .k,.diff:nth-child(3) .k{background:linear-gradient(135deg,var(--yellow),var(--orange))}
 .diff:nth-child(2) .k svg,.diff:nth-child(3) .k svg{stroke:var(--navy)}
+
+
+/* ---------- Criadores ---------- */
+.founders{background:linear-gradient(180deg,var(--ink) 0%,#0A1440 100%)}
+.f-list{display:grid;gap:28px}
+.founder{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:clamp(24px,4vw,56px);padding:clamp(18px,2.4vw,28px);align-items:start}
+.f-photo{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;max-width:100%;background:var(--navy)}
+.f-photo img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.founder:hover .f-photo img{transform:scale(1.04)}
+.f-photo::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(0deg,rgba(7,12,31,.85),transparent);pointer-events:none}
+.f-photo .since{position:absolute;left:16px;bottom:16px;z-index:1;display:grid;gap:2px}
+.f-photo .since b{font:700 34px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.f-photo .since small{font:500 12px/1.2 var(--f-body);color:var(--mist);letter-spacing:.06em;text-transform:uppercase}
+.f-mono{display:grid;place-items:center;font:700 72px/1 var(--f-display);color:var(--navy);background:linear-gradient(135deg,var(--cyan),var(--blue) 55%,var(--orange))}
+.f-body{display:grid;gap:16px;min-width:0;padding-top:6px}
+.f-role{font:600 12px/1.3 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+.f-body h3{font-size:clamp(28px,3.2vw,40px);line-height:1.05;letter-spacing:-.5px}
+.f-body .kicker{font:600 15px/1 var(--f-display);color:var(--cyan);letter-spacing:.02em}
+.f-body p{color:var(--mist);max-width:64ch}
+.f-body blockquote{margin:4px 0 0;padding-left:18px;border-left:2px solid var(--orange);font:600 clamp(18px,1.8vw,21px)/1.4 var(--f-display);color:var(--white);max-width:56ch}
+.f-areas{display:flex;flex-wrap:wrap;gap:8px}
+.f-sign{font:500 14px/1.4 var(--f-body);color:var(--mist-2)}
+.founder.compact{grid-template-columns:minmax(0,200px) minmax(0,1fr);align-items:center}
+@media (max-width:860px){.founder,.founder.compact{grid-template-columns:1fr}.founder .f-photo{max-width:420px}.founder.compact .f-photo{max-width:200px}}
 
 /* ---------- Serviços 360 ---------- */
 .services{background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%);overflow:hidden}
@@ -423,6 +447,7 @@ form.ct-form{padding:clamp(22px,3vw,34px);display:grid;gap:16px}
       </a>
       <nav class="nav" aria-label="Principal">
         <a class="u-link" href="#sobre">Quem somos</a>
+        <a class="u-link" href="#criadores">Criadores</a>
         <a class="u-link" href="#servicos">Serviços 360°</a>
         <a class="u-link" href="#portfolio">Portfólio</a>
         <a class="u-link" href="#laboratorio">Laboratório</a>
@@ -510,6 +535,41 @@ form.ct-form{padding:clamp(22px,3vw,34px);display:grid;gap:16px}
         <div class="k"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9"/><path d="M12 7v5l3 2"/><path d="M17 3h4v4"/></svg></div>
         <h3>Operação 360°, um único ponto de contato</h3>
         <p>Você fala com uma agência só, e ela resolve tudo, do planejamento à peça publicada.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CRIADORES ============ -->
+<section class="sec founders" id="criadores">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Os criadores</span>
+      <h2>Quem está à frente da <span class="warm-text">Identidade Digital</span>.</h2>
+      <p>A agência é conduzida por dois CEOs, que unem experiência comercial, criativa e de negócios em cada projeto.</p>
+    </div>
+    <div class="f-list">
+      <article class="gb founder rv">
+        <div class="f-photo"><img data-img="ceoHadoyka" alt="Hadoyka Carvalho Fulgêncio" loading="lazy"><div class="since"><small>No marketing desde</small><b>2006</b></div></div>
+        <div class="f-body">
+          <span class="f-role">CEO · Comercial, criação e estrutura</span>
+          <h3>Hadoyka Carvalho Fulgêncio</h3>
+          <span class="kicker">Minha trajetória</span>
+          <p>Minha história com o marketing começou em 2006, construindo conexões, prospectando clientes e transformando oportunidades em resultados. Ao longo dessa trajetória, acumulei experiências no comércio, na gestão de lojas, na produção de eventos e no desenvolvimento de negócios.</p>
+          <p>Sempre tive como essência a comunicação, a criatividade e a habilidade de enxergar oportunidades, desde a captação de leads qualificados até o desafio de transformar contatos frios em relacionamentos comerciais de valor.</p>
+          <p>Hoje, ao lado do meu sócio Agenor Borges, estou à frente da Identidade Digital, agência de marketing digital 360° fundada em 2026. Atuo diretamente nas áreas comercial, criativa e estrutural, unindo experiência, estratégia e inovação para desenvolver projetos que valorizam marcas e impulsionam negócios.</p>
+          <blockquote>Mais do que fazer marketing, acredito em construir identidades, conectar pessoas e transformar ideias em resultados.</blockquote>
+          <div class="f-areas"><span class="chip" style="cursor:default">Comercial</span><span class="chip" style="cursor:default">Criação</span><span class="chip" style="cursor:default">Estrutura</span><span class="chip" style="cursor:default">Eventos</span><span class="chip" style="cursor:default">Geração de leads</span></div>
+          <span class="f-sign">Identidade Digital — Sua marca, nossa estratégia.</span>
+        </div>
+      </article>
+      <article class="gb founder compact rv">
+        <div class="f-photo f-mono" aria-hidden="true">AB</div>
+        <div class="f-body">
+          <span class="f-role">CEO · Sócio-fundador</span>
+          <h3>Agenor Borges</h3>
+          <p>Sócio de Hadoyka à frente da Identidade Digital desde a fundação da agência, em 2026.</p>
+        </div>
       </article>
     </div>
   </div>
@@ -689,7 +749,7 @@ form.ct-form{padding:clamp(22px,3vw,34px);display:grid;gap:16px}
       <div class="slogan">Sua marca, nossa estratégia. <span class="warm-text">Marketing 360°.</span></div>
     </div>
     <nav aria-label="Rodapé">
-      <a class="u-link" href="#sobre">Quem somos</a><a class="u-link" href="#servicos">Serviços</a><a class="u-link" href="#portfolio">Portfólio</a><a class="u-link" href="#laboratorio">Laboratório</a><a class="u-link" href="#processo">Processo</a><a class="u-link" href="#contato">Contato</a>
+      <a class="u-link" href="#sobre">Quem somos</a><a class="u-link" href="#criadores">Criadores</a><a class="u-link" href="#servicos">Serviços</a><a class="u-link" href="#portfolio">Portfólio</a><a class="u-link" href="#laboratorio">Laboratório</a><a class="u-link" href="#processo">Processo</a><a class="u-link" href="#contato">Contato</a>
     </nav>
     <small>© 2026 Identidade Digital · Agência de marketing digital 360°</small>
   </div>
@@ -702,7 +762,7 @@ const IMG = {
   dbarbosaCrop:"/novo/cli-daniel-barbosa-advocacia.webp", maxwellCrop:"/novo/cli-maxwell-medrado.webp",
   dbarbosaSite:"/novo/site-daniel-barbosa-advocacia.webp", maxwellSite:"/novo/site-maxwell-medrado.webp",
   gorelio:"/novo/site-gorelio.webp", storyPoster:"/novo/story-poster.webp",
-  distriba:"/novo/distriba-logo.webp", distribaPoster:"/novo/distriba-poster.webp"
+  distriba:"/novo/distriba-logo.webp", ceoHadoyka:"/novo/ceo-hadoyka.webp", distribaPoster:"/novo/distriba-poster.webp"
 };
 const VID = { gorelioStory:"/novo/story-gorelio.mp4", distribaReveal:"/novo/distriba-reveal.mp4" };
 document.querySelectorAll('[data-img]').forEach(el=>{el.src=IMG[el.dataset.img]});
