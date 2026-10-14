@@ -768,6 +768,7 @@ const IMG = {
   dassuncao:"/novo/cli-daniel-assuncao-advogados.webp", taynara:"/novo/cli-taynara-carvalho-ebm.webp", mercadao:"/novo/cli-mercadao-dos-oculos.webp",
   dbarbosaCrop:"/novo/cli-daniel-barbosa-advocacia.webp", maxwellCrop:"/novo/cli-maxwell-medrado.webp",
   dbarbosaSite:"/novo/site-daniel-barbosa-advocacia.webp", maxwellSite:"/novo/site-maxwell-medrado.webp",
+  dmSite:"/novo/site-dm-locacoes.webp", dmCrop:"/novo/cli-dm-locacoes.webp", dmPlan:"/novo/dm-planejador.webp", dmAv:"/novo/dm-av.webp", dmLogo:"/novo/dm-logo.webp",
   toledoSite:"/novo/site-toledo-consultoria.webp", toledoCrop:"/novo/cli-toledo-consultoria.webp", toledoAv:"/novo/toledo-av.webp",
   gorelio:"/novo/site-gorelio.webp", storyPoster:"/novo/story-poster.webp",
   distriba:"/novo/distriba-logo.webp", ceoHadoyka:"/novo/ceo-hadoyka.webp", ceoAgenor:"/novo/ceo-agenor.webp", distribaPoster:"/novo/distriba-poster.webp",
@@ -870,6 +871,10 @@ const PROJECTS=[
    desc:'Landing page da consultoria online de nutrição e treino, com chamadas diretas para a contratação e para o WhatsApp, e vídeo vertical de lançamento do site para os stories.',
    tags:['Webdesign','Edição de vídeo'],cats:['sites','video','saude'],
    media:[{video:'gorelioStory',poster:'storyPoster'},{img:'gorelio'}],link:'https://treinadorgh.com.br/'},
+  {id:'dm',name:'DM Locações Eventos',seg:'Locação para eventos · Goiás',badge:'Site',cover:'dmSite',
+   desc:'Site para locadora de tendas, gradis, mobiliário e banheiros para eventos. Destaque para o planejador "Monte seu evento": o cliente escolhe o tipo de festa, o número de convidados e os itens, vê a planta do espaço se formar e envia a lista pronta pelo WhatsApp para o orçamento.',
+   tags:['Webdesign','Planejador interativo','Integração com WhatsApp'],cats:['sites','eventos'],
+   media:[{img:'dmSite'},{img:'dmPlan'},{img:'dmCrop'},{img:'dmLogo'}],link:'https://dm-locacoes.vercel.app/'},
   {id:'toledo',name:'Toledo Consultoria',seg:'Consultoria empresarial · agronegócio',badge:'Site',cover:'toledoSite',
    desc:'Landing page para consultoria empresarial e patrimonial que atende empresários e produtores rurais. Apresenta as quatro frentes de atuação (bancária, fundiária, holding e agrária), um caso documentado com números reais de redução de dívida, depoimentos de clientes e contato direto pelo WhatsApp.',
    tags:['Webdesign','Integração com WhatsApp','Copywriting'],cats:['sites','profissionais'],
@@ -900,6 +905,7 @@ const PROJECTS=[
     {o:4,a:158,r:399,img:'toledoAv',br:'20px',glow:'rgba(214,170,60,.6)',d:3.1,tip:'Toledo Consultoria',p:'toledo'},
     {o:4,a:220,r:399,ico:'play',z:88,br:'24px',c1:'#00FCFF',c2:'#6FA0FF',glow:'rgba(0,252,255,.55)',d:2.05,tip:'Edição de vídeo',s:'video'},
     {o:4,a:320,r:399,img:'distriba',glow:'rgba(40,220,110,.55)',d:2.3,tip:'Distriba Distribuidora',p:'distriba'},
+    {o:1,a:180,r:177,img:'dmAv',br:'20px',glow:'rgba(0,200,255,.6)',d:3.3,tip:'DM Locações Eventos',p:'dm'},
     {o:1,a:90,r:177,img:'motaAv',glow:'rgba(1,56,235,.9)',d:2.5,tip:'Vidraçaria Mota',p:'mota'},
     {o:3,a:250,r:325,img:'csClosetAv',glow:'rgba(255,90,170,.6)',d:2.7,tip:'CS Closet',p:'cscloset'},
     {o:3,a:10,r:325,img:'narlaAv',glow:'rgba(255,200,60,.6)',d:2.9,tip:'Narla Imóveis',p:'narla'}
@@ -918,7 +924,7 @@ const PROJECTS=[
 
 /* Ticker */
 (function(){
-  const names=['Distriba Distribuidora','Vidraçaria Mota','CS Closet','Narla Imóveis','Daniel Assunção Advogados','Taynara Carvalho','Mercadão dos Óculos','Daniel Barbosa Dias Advocacia','Maxwell Medrado','Gorélio Horácio','Toledo Consultoria'];
+  const names=['Distriba Distribuidora','Vidraçaria Mota','CS Closet','Narla Imóveis','Daniel Assunção Advogados','Taynara Carvalho','Mercadão dos Óculos','Daniel Barbosa Dias Advocacia','Maxwell Medrado','Gorélio Horácio','Toledo Consultoria','DM Locações Eventos'];
   const t=document.getElementById('ticker');
   const row=names.map(n=>`<span>${n}</span>`).join('');
   t.innerHTML=row+row+row+row; t.lastElementChild;
