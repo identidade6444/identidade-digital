@@ -768,6 +768,7 @@ const IMG = {
   dassuncao:"/novo/cli-daniel-assuncao-advogados.webp", taynara:"/novo/cli-taynara-carvalho-ebm.webp", mercadao:"/novo/cli-mercadao-dos-oculos.webp",
   dbarbosaCrop:"/novo/cli-daniel-barbosa-advocacia.webp", maxwellCrop:"/novo/cli-maxwell-medrado.webp",
   dbarbosaSite:"/novo/site-daniel-barbosa-advocacia.webp", maxwellSite:"/novo/site-maxwell-medrado.webp",
+  toledoSite:"/novo/site-toledo-consultoria.webp", toledoCrop:"/novo/cli-toledo-consultoria.webp", toledoAv:"/novo/toledo-av.webp",
   gorelio:"/novo/site-gorelio.webp", storyPoster:"/novo/story-poster.webp",
   distriba:"/novo/distriba-logo.webp", ceoHadoyka:"/novo/ceo-hadoyka.webp", ceoAgenor:"/novo/ceo-agenor.webp", distribaPoster:"/novo/distriba-poster.webp",
   mota:"/novo/mota-cover.webp", motaLogo:"/novo/mota-logo.webp", motaAv:"/novo/mota-av.webp", motaPost:"/novo/mota-post.webp", motaEspelho:"/novo/mota-espelho.webp",
@@ -869,6 +870,10 @@ const PROJECTS=[
    desc:'Landing page da consultoria online de nutrição e treino, com chamadas diretas para a contratação e para o WhatsApp, e vídeo vertical de lançamento do site para os stories.',
    tags:['Webdesign','Edição de vídeo'],cats:['sites','video','saude'],
    media:[{video:'gorelioStory',poster:'storyPoster'},{img:'gorelio'}],link:'https://treinadorgh.com.br/'},
+  {id:'toledo',name:'Toledo Consultoria',seg:'Consultoria empresarial · agronegócio',badge:'Site',cover:'toledoSite',
+   desc:'Landing page para consultoria empresarial e patrimonial que atende empresários e produtores rurais. Apresenta as quatro frentes de atuação (bancária, fundiária, holding e agrária), um caso documentado com números reais de redução de dívida, depoimentos de clientes e contato direto pelo WhatsApp.',
+   tags:['Webdesign','Integração com WhatsApp','Copywriting'],cats:['sites','profissionais'],
+   media:[{img:'toledoSite'},{img:'toledoCrop'}],link:'https://toledoconsulltoria.com.br/'},
   {id:'dassuncao',name:'Daniel Assunção Advogados',seg:'Advocacia',badge:'Peça gráfica',cover:'dassuncao',
    desc:'Arte de boas-vindas criada para anunciar o escritório como novo cliente da Identidade Digital.',
    tags:['Design gráfico','Conteúdo para Instagram'],cats:['design','profissionais'],media:[{img:'dassuncao'}]},
@@ -892,6 +897,7 @@ const PROJECTS=[
     {o:3,a:130,r:325,img:'gorelio',z:88,glow:'rgba(255,98,0,.6)',d:1.4,tip:'Gorélio Horácio',p:'gorelio'},
     {o:4,a:30,r:399,img:'dbarbosaCrop',glow:'rgba(0,252,255,.6)',d:1.6,tip:'Daniel Barbosa Dias Advocacia',p:'dbarbosa'},
     {o:4,a:95,r:399,ico:'ads',z:88,br:'24px',c1:'#FFED00',c2:'#FF6200',glow:'rgba(255,98,0,.55)',d:1.8,tip:'Tráfego pago',s:'trafego'},
+    {o:4,a:158,r:399,img:'toledoAv',br:'20px',glow:'rgba(214,170,60,.6)',d:3.1,tip:'Toledo Consultoria',p:'toledo'},
     {o:4,a:220,r:399,ico:'play',z:88,br:'24px',c1:'#00FCFF',c2:'#6FA0FF',glow:'rgba(0,252,255,.55)',d:2.05,tip:'Edição de vídeo',s:'video'},
     {o:4,a:320,r:399,img:'distriba',glow:'rgba(40,220,110,.55)',d:2.3,tip:'Distriba Distribuidora',p:'distriba'},
     {o:1,a:90,r:177,img:'motaAv',glow:'rgba(1,56,235,.9)',d:2.5,tip:'Vidraçaria Mota',p:'mota'},
@@ -912,7 +918,7 @@ const PROJECTS=[
 
 /* Ticker */
 (function(){
-  const names=['Distriba Distribuidora','Vidraçaria Mota','CS Closet','Narla Imóveis','Daniel Assunção Advogados','Taynara Carvalho','Mercadão dos Óculos','Daniel Barbosa Dias Advocacia','Maxwell Medrado','Gorélio Horácio'];
+  const names=['Distriba Distribuidora','Vidraçaria Mota','CS Closet','Narla Imóveis','Daniel Assunção Advogados','Taynara Carvalho','Mercadão dos Óculos','Daniel Barbosa Dias Advocacia','Maxwell Medrado','Gorélio Horácio','Toledo Consultoria'];
   const t=document.getElementById('ticker');
   const row=names.map(n=>`<span>${n}</span>`).join('');
   t.innerHTML=row+row+row+row; t.lastElementChild;
