@@ -770,6 +770,7 @@ const IMG = {
   dbarbosaSite:"/novo/site-daniel-barbosa-advocacia.webp", maxwellSite:"/novo/site-maxwell-medrado.webp",
   dmSite:"/novo/site-dm-locacoes.webp", dmCrop:"/novo/cli-dm-locacoes.webp", dmPlan:"/novo/dm-planejador.webp", dmAv:"/novo/dm-av.webp", dmLogo:"/novo/dm-logo.webp",
   toledoSite:"/novo/site-toledo-consultoria.webp", toledoCrop:"/novo/cli-toledo-consultoria.webp", toledoAv:"/novo/toledo-av.webp",
+  navalhaApp:"/novo/site-navalha.webp", navalhaHorarios:"/novo/navalha-horarios.webp", navalhaConfirmado:"/novo/navalha-confirmado.webp", navalhaPainel:"/novo/navalha-painel.webp", navalhaMobile:"/novo/cli-navalha.webp", navalhaAv:"/novo/navalha-av.webp",
   gorelio:"/novo/site-gorelio.webp", storyPoster:"/novo/story-poster.webp",
   distriba:"/novo/distriba-logo.webp", ceoHadoyka:"/novo/ceo-hadoyka.webp", ceoAgenor:"/novo/ceo-agenor.webp", distribaPoster:"/novo/distriba-poster.webp",
   mota:"/novo/mota-cover.webp", motaLogo:"/novo/mota-logo.webp", motaAv:"/novo/mota-av.webp", motaPost:"/novo/mota-post.webp", motaEspelho:"/novo/mota-espelho.webp",
@@ -840,8 +841,8 @@ const SERVICES=[
 ];
 
 const CATS={
-  servico:[['branding','Branding e identidade visual'],['redes','Gestão de redes sociais'],['trafego','Tráfego pago e performance'],['sites','Sites e landing pages'],['design','Design gráfico e publicidade'],['video','Vídeo e audiovisual'],['ia','IA, automação e inovação']],
-  segmento:[['comercio','Comércio e distribuidoras'],['imobiliario','Imobiliário'],['saude','Saúde e bem-estar'],['eventos','Eventos e entretenimento'],['profissionais','Consultorias e serviços profissionais']]
+  servico:[['branding','Branding e identidade visual'],['redes','Gestão de redes sociais'],['trafego','Tráfego pago e performance'],['sites','Sites e landing pages'],['apps','Aplicativos'],['design','Design gráfico e publicidade'],['video','Vídeo e audiovisual'],['ia','IA, automação e inovação']],
+  segmento:[['comercio','Comércio e distribuidoras'],['imobiliario','Imobiliário'],['saude','Saúde e bem-estar'],['beleza','Beleza e estética'],['eventos','Eventos e entretenimento'],['profissionais','Consultorias e serviços profissionais']]
 };
 
 const PROJECTS=[
@@ -879,6 +880,10 @@ const PROJECTS=[
    desc:'Landing page para consultoria empresarial e patrimonial que atende empresários e produtores rurais. Apresenta as quatro frentes de atuação (bancária, fundiária, holding e agrária), um caso documentado com números reais de redução de dívida, depoimentos de clientes e contato direto pelo WhatsApp.',
    tags:['Webdesign','Integração com WhatsApp','Copywriting'],cats:['sites','profissionais'],
    media:[{img:'toledoSite'},{img:'toledoCrop'}],link:'https://toledoconsulltoria.com.br/'},
+  {id:'navalha',name:'Barbearia Navalha',seg:'Barbearia · agendamento online',badge:'Aplicativo',cover:'navalhaApp',
+   desc:'Aplicativo web de agendamento para barbearia. O cliente escolhe o serviço, o barbeiro e o horário livre e recebe a confirmação na hora, sem ligação, com cancelamento pelo próprio app e cartão fidelidade. A barbearia ganha um painel de gestão com a agenda de cada cadeira, previsão de faturamento do dia, baixa de atendimentos e faltas e bloqueio de horários para almoço ou folga. Funciona no celular e no computador, sem precisar baixar nada.',
+   tags:['Aplicativo web','Agendamento online','Painel de gestão'],cats:['apps','beleza'],
+   media:[{img:'navalhaApp'},{img:'navalhaHorarios'},{img:'navalhaConfirmado'},{img:'navalhaPainel'},{img:'navalhaMobile'}],link:'https://navalha-vercel.vercel.app/',linkLabel:'Testar o aplicativo'},
   {id:'dassuncao',name:'Daniel Assunção Advogados',seg:'Advocacia',badge:'Peça gráfica',cover:'dassuncao',
    desc:'Arte de boas-vindas criada para anunciar o escritório como novo cliente da Identidade Digital.',
    tags:['Design gráfico','Conteúdo para Instagram'],cats:['design','profissionais'],media:[{img:'dassuncao'}]},
@@ -908,7 +913,8 @@ const PROJECTS=[
     {o:1,a:180,r:177,img:'dmAv',br:'20px',glow:'rgba(0,200,255,.6)',d:3.3,tip:'DM Locações Eventos',p:'dm'},
     {o:1,a:90,r:177,img:'motaAv',glow:'rgba(1,56,235,.9)',d:2.5,tip:'Vidraçaria Mota',p:'mota'},
     {o:3,a:250,r:325,img:'csClosetAv',glow:'rgba(255,90,170,.6)',d:2.7,tip:'CS Closet',p:'cscloset'},
-    {o:3,a:10,r:325,img:'narlaAv',glow:'rgba(255,200,60,.6)',d:2.9,tip:'Narla Imóveis',p:'narla'}
+    {o:3,a:10,r:325,img:'narlaAv',glow:'rgba(255,200,60,.6)',d:2.9,tip:'Narla Imóveis',p:'narla'},
+    {o:3,a:190,r:325,img:'navalhaAv',br:'20px',glow:'rgba(178,128,50,.65)',d:3.5,tip:'Barbearia Navalha · app',p:'navalha'}
   ];
   const T={1:30,2:40,3:50,4:60};
   AV.forEach(v=>{
@@ -924,7 +930,7 @@ const PROJECTS=[
 
 /* Ticker */
 (function(){
-  const names=['Distriba Distribuidora','Vidraçaria Mota','CS Closet','Narla Imóveis','Daniel Assunção Advogados','Taynara Carvalho','Mercadão dos Óculos','Daniel Barbosa Dias Advocacia','Maxwell Medrado','Gorélio Horácio','Toledo Consultoria','DM Locações Eventos'];
+  const names=['Distriba Distribuidora','Vidraçaria Mota','CS Closet','Narla Imóveis','Daniel Assunção Advogados','Taynara Carvalho','Mercadão dos Óculos','Daniel Barbosa Dias Advocacia','Maxwell Medrado','Gorélio Horácio','Toledo Consultoria','DM Locações Eventos','Barbearia Navalha'];
   const t=document.getElementById('ticker');
   const row=names.map(n=>`<span>${n}</span>`).join('');
   t.innerHTML=row+row+row+row; t.lastElementChild;
@@ -993,7 +999,7 @@ function openProject(id){
   document.getElementById('pmTitle').textContent=p.name;
   document.getElementById('pmDesc').textContent=p.desc;
   document.getElementById('pmTags').innerHTML=p.tags.map(t=>`<span class="chip" style="cursor:default">${t}</span>`).join('');
-  document.getElementById('pmLink').innerHTML=p.link?`<div class="btn-border-wrap"><a class="pill" href="${p.link}" target="_blank" rel="noopener">Ver site no ar</a></div>`:'';
+  document.getElementById('pmLink').innerHTML=p.link?`<div class="btn-border-wrap"><a class="pill" href="${p.link}" target="_blank" rel="noopener">${p.linkLabel||'Ver site no ar'}</a></div>`:'';
   const main=document.getElementById('pmMain'),th=document.getElementById('pmThumbs');
   const show=k=>{const m=p.media[k];
     main.innerHTML=m.video?`<video src="${VID[m.video]}" poster="${IMG[m.poster]}" autoplay muted loop playsinline controls></video>`:`<img src="${IMG[m.img]}" alt="${p.name}">`;
