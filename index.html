@@ -772,7 +772,7 @@ const IMG = {
   toledoSite:"/novo/site-toledo-consultoria.webp", toledoCrop:"/novo/cli-toledo-consultoria.webp", toledoAv:"/novo/toledo-av.webp",
   navalhaApp:"/novo/site-navalha.webp", navalhaHorarios:"/novo/navalha-horarios.webp", navalhaConfirmado:"/novo/navalha-confirmado.webp", navalhaPainel:"/novo/navalha-painel.webp", navalhaMobile:"/novo/cli-navalha.webp", navalhaAv:"/novo/navalha-av.webp",
   viniciusSite:"/novo/site-vinicius-constantino.webp", viniciusTemplo:"/novo/vinicius-templo.webp", viniciusGaleria:"/novo/vinicius-galeria.webp", viniciusMobile:"/novo/cli-vinicius-constantino.webp", viniciusAv:"/novo/vinicius-av.webp",
-  garageSite:"/novo/site-garage-motors.webp", garageEstoque:"/novo/garage-estoque.webp", garageSim:"/novo/garage-simulador.webp", garageMobile:"/novo/cli-garage-motors.webp",
+  garageSite:"/novo/site-garage-motors.webp", garageEstoque:"/novo/garage-estoque.webp", garageSim:"/novo/garage-simulador.webp", garageMobile:"/novo/cli-garage-motors.webp", garageAv:"/novo/garage-av.webp",
   gorelio:"/novo/site-gorelio.webp", storyPoster:"/novo/story-poster.webp",
   distriba:"/novo/distriba-logo.webp", ceoHadoyka:"/novo/ceo-hadoyka.webp", ceoAgenor:"/novo/ceo-agenor.webp", distribaPoster:"/novo/distriba-poster.webp",
   mota:"/novo/mota-cover.webp", motaLogo:"/novo/mota-logo.webp", motaAv:"/novo/mota-av.webp", motaPost:"/novo/mota-post.webp", motaEspelho:"/novo/mota-espelho.webp",
@@ -925,6 +925,7 @@ const PROJECTS=[
     {o:3,a:250,r:325,img:'csClosetAv',glow:'rgba(255,90,170,.6)',d:2.7,tip:'CS Closet',p:'cscloset'},
     {o:3,a:10,r:325,img:'narlaAv',glow:'rgba(255,200,60,.6)',d:2.9,tip:'Narla Imóveis',p:'narla'},
     {o:3,a:190,r:325,img:'navalhaAv',br:'20px',glow:'rgba(178,128,50,.65)',d:3.5,tip:'Barbearia Navalha · app',p:'navalha'},
+    {o:1,a:0,r:177,img:'garageAv',glow:'rgba(205,211,221,.7)',d:3.9,tip:'Garage Motors',p:'garage'},
     {o:2,a:240,r:251,img:'viniciusAv',glow:'rgba(198,163,91,.65)',d:3.7,tip:'Vinícius Constantino',p:'vinicius'}
   ];
   const T={1:30,2:40,3:50,4:60};
@@ -941,7 +942,7 @@ const PROJECTS=[
 
 /* Ticker */
 (function(){
-  const names=['Distriba Distribuidora','Vidraçaria Mota','CS Closet','Narla Imóveis','Daniel Assunção Advogados','Taynara Carvalho','Mercadão dos Óculos','Daniel Barbosa Dias Advocacia','Maxwell Medrado','Gorélio Horácio','Toledo Consultoria','DM Locações Eventos','Barbearia Navalha','Vinícius Constantino'];
+  const names=['Distriba Distribuidora','Vidraçaria Mota','CS Closet','Narla Imóveis','Daniel Assunção Advogados','Taynara Carvalho','Mercadão dos Óculos','Daniel Barbosa Dias Advocacia','Maxwell Medrado','Gorélio Horácio','Toledo Consultoria','DM Locações Eventos','Barbearia Navalha','Vinícius Constantino','Garage Motors'];
   const t=document.getElementById('ticker');
   const row=names.map(n=>`<span>${n}</span>`).join('');
   t.innerHTML=row+row+row+row; t.lastElementChild;
