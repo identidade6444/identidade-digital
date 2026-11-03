@@ -773,6 +773,7 @@ const IMG = {
   navalhaApp:"/novo/site-navalha.webp", navalhaHorarios:"/novo/navalha-horarios.webp", navalhaConfirmado:"/novo/navalha-confirmado.webp", navalhaPainel:"/novo/navalha-painel.webp", navalhaMobile:"/novo/cli-navalha.webp", navalhaAv:"/novo/navalha-av.webp",
   viniciusSite:"/novo/site-vinicius-constantino.webp", viniciusTemplo:"/novo/vinicius-templo.webp", viniciusGaleria:"/novo/vinicius-galeria.webp", viniciusMobile:"/novo/cli-vinicius-constantino.webp", viniciusAv:"/novo/vinicius-av.webp",
   garageSite:"/novo/site-garage-motors.webp", garageEstoque:"/novo/garage-estoque.webp", garageSim:"/novo/garage-simulador.webp", garageMobile:"/novo/cli-garage-motors.webp", garageAv:"/novo/garage-av.webp",
+  quintalSite:"/novo/site-quintal.webp", quintalJanela:"/novo/quintal-janela.webp", quintalCardapio:"/novo/quintal-cardapio.webp", quintalHappy:"/novo/quintal-happy.webp", quintalMobile:"/novo/cli-quintal.webp", quintalAv:"/novo/quintal-av.webp",
   gorelio:"/novo/site-gorelio.webp", storyPoster:"/novo/story-poster.webp",
   distriba:"/novo/distriba-logo.webp", ceoHadoyka:"/novo/ceo-hadoyka.webp", ceoAgenor:"/novo/ceo-agenor.webp", distribaPoster:"/novo/distriba-poster.webp",
   mota:"/novo/mota-cover.webp", motaLogo:"/novo/mota-logo.webp", motaAv:"/novo/mota-av.webp", motaPost:"/novo/mota-post.webp", motaEspelho:"/novo/mota-espelho.webp",
@@ -844,7 +845,7 @@ const SERVICES=[
 
 const CATS={
   servico:[['branding','Branding e identidade visual'],['redes','Gestão de redes sociais'],['trafego','Tráfego pago e performance'],['sites','Sites e landing pages'],['apps','Aplicativos'],['design','Design gráfico e publicidade'],['video','Vídeo e audiovisual'],['ia','IA, automação e inovação']],
-  segmento:[['comercio','Comércio e distribuidoras'],['imobiliario','Imobiliário'],['saude','Saúde e bem-estar'],['beleza','Beleza e estética'],['eventos','Eventos e entretenimento'],['cultura','Arte, cultura e espiritualidade'],['profissionais','Consultorias e serviços profissionais']]
+  segmento:[['comercio','Comércio e distribuidoras'],['imobiliario','Imobiliário'],['saude','Saúde e bem-estar'],['beleza','Beleza e estética'],['eventos','Eventos e entretenimento'],['gastronomia','Bares e restaurantes'],['cultura','Arte, cultura e espiritualidade'],['profissionais','Consultorias e serviços profissionais']]
 };
 
 const PROJECTS=[
@@ -894,6 +895,10 @@ const PROJECTS=[
    desc:'Site para loja de seminovos com vídeo na abertura, estoque com filtros, simulador de financiamento que envia o resultado pronto para o WhatsApp, avaliação do carro na troca e agendamento de visita. Visual claro com detalhes em prata e animações suaves ao rolar a página.',
    tags:['Webdesign','Simulador de financiamento','Integração com WhatsApp'],cats:['sites','comercio'],
    media:[{img:'garageSite'},{img:'garageEstoque'},{img:'garageSim'},{img:'garageMobile'}],link:'https://garagemotors64.com.br/'},
+  {id:'quintal',name:'Quintal Bar e Restaurante',seg:'Bar e restaurante · Morrinhos-GO',badge:'Site',cover:'quintalSite',
+   desc:'Landing page do Quintal, bar e restaurante em Morrinhos-GO, feita para transformar visitas em reservas. O cliente monta o pedido no próprio site (nome, data, horário e número de pessoas) e envia pronto pelo WhatsApp, com domingos e horários passados bloqueados. Tem rolagem suave com parallax, foto que se abre ao rolar, cardápio em que a foto acompanha o mouse, Happy Hour com drink que salta da tela, galeria em tela cheia, mapa e SEO local para Morrinhos.',
+   tags:['Webdesign','Reservas pelo WhatsApp','Parallax e animações'],cats:['sites','gastronomia'],
+   media:[{img:'quintalSite'},{img:'quintalJanela'},{img:'quintalCardapio'},{img:'quintalHappy'},{img:'quintalMobile'}],link:'https://quintalbar.com.br/'},
   {id:'dassuncao',name:'Daniel Assunção Advogados',seg:'Advocacia',badge:'Peça gráfica',cover:'dassuncao',
    desc:'Arte de boas-vindas criada para anunciar o escritório como novo cliente da Identidade Digital.',
    tags:['Design gráfico','Conteúdo para Instagram'],cats:['design','profissionais'],media:[{img:'dassuncao'}]},
@@ -926,7 +931,8 @@ const PROJECTS=[
     {o:3,a:10,r:325,img:'narlaAv',glow:'rgba(255,200,60,.6)',d:2.9,tip:'Narla Imóveis',p:'narla'},
     {o:3,a:190,r:325,img:'navalhaAv',br:'20px',glow:'rgba(178,128,50,.65)',d:3.5,tip:'Barbearia Navalha · app',p:'navalha'},
     {o:1,a:0,r:177,img:'garageAv',glow:'rgba(205,211,221,.7)',d:3.9,tip:'Garage Motors',p:'garage'},
-    {o:2,a:240,r:251,img:'viniciusAv',glow:'rgba(198,163,91,.65)',d:3.7,tip:'Vinícius Constantino',p:'vinicius'}
+    {o:2,a:240,r:251,img:'viniciusAv',glow:'rgba(198,163,91,.65)',d:3.7,tip:'Vinícius Constantino',p:'vinicius'},
+    {o:2,a:120,r:251,img:'quintalAv',glow:'rgba(158,27,20,.75)',d:4.1,tip:'Quintal Bar e Restaurante',p:'quintal'}
   ];
   const T={1:30,2:40,3:50,4:60};
   AV.forEach(v=>{
@@ -942,7 +948,7 @@ const PROJECTS=[
 
 /* Ticker */
 (function(){
-  const names=['Distriba Distribuidora','Vidraçaria Mota','CS Closet','Narla Imóveis','Daniel Assunção Advogados','Taynara Carvalho','Mercadão dos Óculos','Daniel Barbosa Dias Advocacia','Maxwell Medrado','Gorélio Horácio','Toledo Consultoria','DM Locações Eventos','Barbearia Navalha','Vinícius Constantino','Garage Motors'];
+  const names=['Distriba Distribuidora','Vidraçaria Mota','CS Closet','Narla Imóveis','Daniel Assunção Advogados','Taynara Carvalho','Mercadão dos Óculos','Daniel Barbosa Dias Advocacia','Maxwell Medrado','Gorélio Horácio','Toledo Consultoria','DM Locações Eventos','Barbearia Navalha','Vinícius Constantino','Garage Motors','Quintal Bar e Restaurante'];
   const t=document.getElementById('ticker');
   const row=names.map(n=>`<span>${n}</span>`).join('');
   t.innerHTML=row+row+row+row; t.lastElementChild;
