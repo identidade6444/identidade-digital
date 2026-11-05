@@ -781,6 +781,11 @@ const IMG = {
   narla:"/novo/narla-cover.webp", narlaLogo:"/novo/narla-logo.webp", narlaAv:"/novo/narla-av.webp", narlaCasa1:"/novo/narla-casa1.webp", narlaCasa2:"/novo/narla-casa2.webp"
 };
 const VID = { gorelioStory:"/novo/story-gorelio.mp4", distribaReveal:"/novo/distriba-reveal.mp4" };
+// Versões de 900px; IMG guarda a de 640px. srcset() devolve os atributos só para quem tem as duas.
+const IMG_900 = {
+  dassuncao:"/novo/cli-daniel-assuncao-advogados-900.webp", taynara:"/novo/cli-taynara-carvalho-ebm-900.webp", mercadao:"/novo/cli-mercadao-dos-oculos-900.webp"
+};
+const srcset=(k,sizes)=>IMG_900[k]?` srcset="${IMG[k]} 640w, ${IMG_900[k]} 900w" sizes="${sizes}"`:'';
 document.querySelectorAll('[data-img]').forEach(el=>{el.src=IMG[el.dataset.img]});
 
 const WA='5564993380223';
@@ -997,7 +1002,7 @@ let curFilter='all';
   f.addEventListener('click',e=>{const b=e.target.closest('.fchip');if(!b)return;applyFilter(b.dataset.f)});
   const g=document.getElementById('pGrid');
   g.innerHTML=PROJECTS.map(p=>`<button type="button" class="gb card rv" data-id="${p.id}" data-cats="${p.cats.join(' ')}" aria-label="Abrir projeto ${p.name}">
-    <div class="thumb"><img src="${IMG[p.cover]}" alt="" loading="lazy"><span class="badge">${p.badge}</span>${p.video?'<span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>':''}</div>
+    <div class="thumb"><img src="${IMG[p.cover]}"${srcset(p.cover,'(max-width:768px) 92vw, (max-width:1100px) 46vw, 400px')} alt="" loading="lazy"><span class="badge">${p.badge}</span>${p.video?'<span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>':''}</div>
     <div class="body"><span class="seg">${p.seg}</span><h3>${p.name}</h3><div class="tags">${p.tags.map(t=>`<span>${t}</span>`).join('')}</div></div></button>`).join('');
   g.addEventListener('click',e=>{const c=e.target.closest('.card');if(c)openProject(c.dataset.id)});
 })();
@@ -1020,7 +1025,7 @@ function openProject(id){
   document.getElementById('pmLink').innerHTML=p.link?`<div class="btn-border-wrap"><a class="pill" href="${p.link}" target="_blank" rel="noopener">${p.linkLabel||'Ver site no ar'}</a></div>`:'';
   const main=document.getElementById('pmMain'),th=document.getElementById('pmThumbs');
   const show=k=>{const m=p.media[k];
-    main.innerHTML=m.video?`<video src="${VID[m.video]}" poster="${IMG[m.poster]}" autoplay muted loop playsinline controls></video>`:`<img src="${IMG[m.img]}" alt="${p.name}">`;
+    main.innerHTML=m.video?`<video src="${VID[m.video]}" poster="${IMG[m.poster]}" autoplay muted loop playsinline controls></video>`:`<img src="${IMG[m.img]}"${srcset(m.img,'(max-width:1024px) 94vw, 560px')} alt="${p.name}">`;
     th.querySelectorAll('button').forEach((b,j)=>b.classList.toggle('on',j===k))};
   th.innerHTML=p.media.length>1?p.media.map((m,k)=>`<button type="button" aria-label="Mídia ${k+1}"><img src="${IMG[m.img||m.poster]}" alt=""></button>`).join(''):'';
   th.querySelectorAll('button').forEach((b,k)=>b.addEventListener('click',()=>show(k)));
