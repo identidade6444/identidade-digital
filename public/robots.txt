@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://identidadedigital64.com.br/sitemap.xml
