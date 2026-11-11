@@ -782,6 +782,7 @@ const IMG = {
   dmSite:"/novo/site-dm-locacoes.webp", dmCrop:"/novo/cli-dm-locacoes.webp", dmPlan:"/novo/dm-planejador.webp", dmAv:"/novo/dm-av.webp", dmLogo:"/novo/dm-logo.webp",
   toledoSite:"/novo/site-toledo-consultoria.webp", toledoCrop:"/novo/cli-toledo-consultoria.webp", toledoAv:"/novo/toledo-av.webp",
   navalhaApp:"/novo/site-navalha.webp", navalhaHorarios:"/novo/navalha-horarios.webp", navalhaConfirmado:"/novo/navalha-confirmado.webp", navalhaPainel:"/novo/navalha-painel.webp", navalhaMobile:"/novo/cli-navalha.webp", navalhaAv:"/novo/navalha-av.webp",
+  vetappSite:"/novo/site-vetapp.jpg", vetappLogin:"/novo/vetapp-login.jpg", vetappMobile:"/novo/cli-vetapp.jpg", vetappAv:"/novo/vetapp-av.png",
   viniciusSite:"/novo/site-vinicius-constantino.webp", viniciusTemplo:"/novo/vinicius-templo.webp", viniciusGaleria:"/novo/vinicius-galeria.webp", viniciusMobile:"/novo/cli-vinicius-constantino.webp", viniciusAv:"/novo/vinicius-av.webp",
   garageSite:"/novo/site-garage-motors.webp", garageEstoque:"/novo/garage-estoque.webp", garageSim:"/novo/garage-simulador.webp", garageMobile:"/novo/cli-garage-motors.webp", garageAv:"/novo/garage-av.webp",
   quintalSite:"/novo/site-quintal.webp", quintalJanela:"/novo/quintal-janela.webp", quintalCardapio:"/novo/quintal-cardapio.webp", quintalHappy:"/novo/quintal-happy.webp", quintalMobile:"/novo/cli-quintal.webp", quintalAv:"/novo/quintal-av.webp",
@@ -903,6 +904,10 @@ const PROJECTS=[
    desc:'Aplicativo web de agendamento para barbearia. O cliente escolhe o serviço, o barbeiro e o horário livre e recebe a confirmação na hora, sem ligação, com cancelamento pelo próprio app e cartão fidelidade. A barbearia ganha um painel de gestão com a agenda de cada cadeira, previsão de faturamento do dia, baixa de atendimentos e faltas e bloqueio de horários para almoço ou folga. Funciona no celular e no computador, sem precisar baixar nada.',
    tags:['Aplicativo web','Agendamento online','Painel de gestão'],cats:['apps','beleza'],
    media:[{img:'navalhaApp'},{img:'navalhaHorarios'},{img:'navalhaConfirmado'},{img:'navalhaPainel'},{img:'navalhaMobile'}],link:'https://navalha-vercel.vercel.app/',linkLabel:'Testar o aplicativo'},
+  {id:'vetapp',name:'Vet App Inteligente',seg:'Veterinária · produto próprio',badge:'Aplicativo + landing',cover:'vetappSite',
+   desc:'Aplicativo de gestão para veterinários autônomos e clínicas, criado pela Identidade Digital: agenda sem conflito de horários, cadastro de tutores e pets, prontuário, carteira de vacinas, receituário em PDF com CRMV (receita, controle especial, atestado e termo), financeiro com comissões e um assistente com IA para tirar dúvidas durante o atendimento. Junto, a landing page de vendas com planos e pedido de teste grátis que salva o contato e abre o WhatsApp.',
+   tags:['Aplicativo web','Assistente com IA','Landing page de vendas'],cats:['apps','sites','ia','saude'],
+   media:[{img:'vetappSite'},{img:'vetappMobile'},{img:'vetappLogin'}],link:'https://vet-app-inteligente-lp.vercel.app/',linkLabel:'Conhecer o Vet App'},
   {id:'vinicius',name:'Vinícius Constantino',seg:'Mitologia, arte e espiritualidade · EUA',badge:'Site',cover:'viniciusSite',
    desc:'Site bilíngue (inglês e português) para a marca de Vinícius Constantino, voltado ao público dos Estados Unidos. A entrada é um portal de templo: o visitante gira a chave, as portas se abrem com som e revelam a marca. Reúne panteão interativo dos deuses, loja e galeria de quadros, sala de meditação com sons ambientes, tiragem de tarô, livro de receitas antigas, grimório e os vídeos do TikTok.',
    tags:['Webdesign','Animações e som','Site bilíngue'],cats:['sites','cultura'],
@@ -948,7 +953,8 @@ const PROJECTS=[
     {o:3,a:190,r:325,img:'navalhaAv',br:'20px',glow:'rgba(178,128,50,.65)',d:3.5,tip:'Barbearia Navalha · app',p:'navalha'},
     {o:1,a:0,r:177,img:'garageAv',glow:'rgba(205,211,221,.7)',d:3.9,tip:'Garage Motors',p:'garage'},
     {o:2,a:240,r:251,img:'viniciusAv',glow:'rgba(198,163,91,.65)',d:3.7,tip:'Vinícius Constantino',p:'vinicius'},
-    {o:2,a:120,r:251,img:'quintalAv',glow:'rgba(158,27,20,.75)',d:4.1,tip:'Quintal Bar e Restaurante',p:'quintal'}
+    {o:2,a:120,r:251,img:'quintalAv',glow:'rgba(158,27,20,.75)',d:4.1,tip:'Quintal Bar e Restaurante',p:'quintal'},
+    {o:4,a:270,r:399,img:'vetappAv',br:'20px',glow:'rgba(123,47,247,.7)',d:4.3,tip:'Vet App Inteligente · app',p:'vetapp'}
   ];
   const T={1:30,2:40,3:50,4:60};
   AV.forEach(v=>{
@@ -964,7 +970,7 @@ const PROJECTS=[
 
 /* Ticker */
 (function(){
-  const names=['Distriba Distribuidora','Vidraçaria Mota','CS Closet','Narla Imóveis','Daniel Assunção Advogados','Taynara Carvalho','Mercadão dos Óculos','Daniel Barbosa Dias Advocacia','Maxwell Medrado','Gorélio Horácio','Toledo Consultoria','DM Locações Eventos','Barbearia Navalha','Vinícius Constantino','Garage Motors','Quintal Bar e Restaurante'];
+  const names=['Distriba Distribuidora','Vidraçaria Mota','CS Closet','Narla Imóveis','Daniel Assunção Advogados','Taynara Carvalho','Mercadão dos Óculos','Daniel Barbosa Dias Advocacia','Maxwell Medrado','Gorélio Horácio','Toledo Consultoria','DM Locações Eventos','Barbearia Navalha','Vinícius Constantino','Garage Motors','Quintal Bar e Restaurante','Vet App Inteligente'];
   const t=document.getElementById('ticker');
   const row=names.map(n=>`<span>${n}</span>`).join('');
   t.innerHTML=row+row+row+row; t.lastElementChild;
