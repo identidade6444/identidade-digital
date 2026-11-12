@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /pagar/
+Disallow: /api/
 
 Sitemap: https://identidadedigital64.com.br/sitemap.xml

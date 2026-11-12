@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Gerar link de pagamento — Identidade Digital</title>
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#070C1F" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Urbanist:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap">
+<style>
+:root{--ink:#070C1F;--ink-2:#0B1230;--blue:#0138EB;--cyan:#00FCFF;--orange:#FF6200;--yellow:#FFED00;--mist:rgba(226,234,255,.72);--dim:rgba(226,234,255,.5);--line:rgba(170,200,255,.16);--glass:rgba(255,255,255,.045);--ok:#3DF5A6;--err:#FF6B6B;
+  --f-display:'Urbanist','Inter',system-ui,sans-serif;--f-body:'Inter',system-ui,sans-serif;--f-lux:'Playfair Display',Georgia,serif;--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;background:var(--ink);color:#fff;font:16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(600px 400px at 10% 0%,rgba(1,56,235,.3),transparent 70%),radial-gradient(500px 360px at 100% 20%,rgba(0,252,255,.1),transparent 70%)}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{position:relative;width:min(760px,100%);margin:0 auto;padding:22px 16px 60px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:26px}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+.logo img{height:32px}
+.logo span{display:flex;flex-direction:column;line-height:1}
+.logo b{font:700 15px/1 var(--f-lux);letter-spacing:.08em}
+.logo small{font:500 11px/1.2 var(--f-body);color:var(--mist);margin-top:3px}
+.badge{font:600 11.5px/1 var(--f-body);letter-spacing:.06em;padding:7px 11px;border-radius:30px;border:1px solid var(--line);color:var(--mist)}
+.badge.test{color:var(--yellow);border-color:rgba(255,237,0,.4)}
+.badge.live{color:var(--ok);border-color:rgba(61,245,166,.4)}
+h1{font:700 clamp(28px,4.4vw,40px)/1.1 var(--f-display);margin:0 0 6px;letter-spacing:-.01em}
+.lead{color:var(--mist);margin:0 0 26px}
+.card{border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));padding:clamp(20px,3.4vw,32px);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.full{grid-column:1/-1}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+label.f{display:grid;gap:7px}
+label.f>span{font-size:13px;color:var(--mist)}
+label.f>span em{font-style:normal;color:var(--dim)}
+.in{width:100%;min-height:50px;padding:12px 15px;border-radius:14px;border:1px solid var(--line);background:rgba(7,12,31,.55);font-size:16px;outline:none;transition:border-color .2s,box-shadow .2s}
+textarea.in{min-height:84px;resize:vertical}
+.in:focus{border-color:var(--cyan);box-shadow:0 0 0 4px rgba(0,252,255,.12)}
+select.in{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%2300FCFF' stroke-width='1.8'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;padding-right:38px}
+select.in option{background:var(--ink-2)}
+.money{position:relative}
+.money::before{content:"R$";position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--dim);font-size:15px}
+.money .in{padding-left:44px;font:600 20px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.checks{display:flex;flex-wrap:wrap;gap:10px}
+.chk{display:inline-flex;align-items:center;gap:9px;padding:11px 15px;border-radius:40px;border:1px solid var(--line);cursor:pointer;font-size:14.5px;user-select:none;transition:border-color .2s,background .2s}
+.chk input{accent-color:var(--cyan);width:16px;height:16px;margin:0}
+.chk:has(input:checked){border-color:var(--cyan);background:rgba(0,252,255,.07)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;border-radius:14px;border:1px solid var(--line);background:var(--glass);font:600 15.5px/1 var(--f-display);cursor:pointer;text-decoration:none;color:#fff;transition:filter .2s,border-color .2s}
+.btn:hover{border-color:var(--cyan)}
+.btn.primary{border:0;background:linear-gradient(180deg,#0A46FF,var(--blue));width:100%;height:58px;font-size:17px}
+.btn.primary:hover{filter:brightness(1.1)}
+.btn[disabled]{opacity:.6;cursor:progress}
+.btn svg{width:17px;height:17px}
+.alert{display:none;margin-top:14px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,107,107,.4);background:rgba(255,107,107,.08);color:#ffd2d2;font-size:14px}
+.alert.on{display:block}
+.preview{margin-top:18px;padding:16px 18px;border-radius:16px;border:1px dashed var(--line);color:var(--mist);font-size:14px}
+.preview b{color:#fff}
+.out{display:none;margin-top:20px;animation:rise .45s var(--ease)}
+.out.on{display:block}
+.out .link{display:flex;gap:8px}
+.out code{flex:1;min-width:0;padding:15px;border-radius:14px;border:1px solid var(--cyan);background:rgba(0,252,255,.05);font:13px/1.4 ui-monospace,Menlo,monospace;color:#dffcff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.row .btn{flex:1 1 180px}
+.h{font:600 13px/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin:28px 0 12px}
+.hist{display:grid;gap:8px}
+.hist div{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);font-size:14px}
+.hist span{color:var(--mist);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hist button{flex:none;border:0;background:none;color:var(--cyan);cursor:pointer;font-weight:600}
+.login{max-width:420px;margin:12vh auto 0}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;background:#fff;color:#0B1230;font:600 14px/1 var(--f-display);padding:13px 18px;border-radius:40px;transition:all .3s var(--ease);pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="/"><img src="/novo/logo-mark.webp" alt=""><span><b>IDENTIDADE</b><small>Digital</small></span></a>
+    <span class="badge" id="env">Área interna</span>
+  </header>
+
+  <!-- Login -->
+  <section class="login" id="login">
+    <h1>Links de pagamento</h1>
+    <p class="lead">Área interna da agência. Digite a senha para continuar.</p>
+    <form class="card" id="loginForm">
+      <label class="f"><span>Senha</span><input class="in" type="password" id="senha" autocomplete="current-password" required></label>
+      <div class="alert" id="loginErr"></div>
+      <button class="btn primary" style="margin-top:16px" id="loginBtn">Entrar</button>
+    </form>
+  </section>
+
+  <!-- Gerador -->
+  <section id="app" hidden>
+    <h1>Novo link de pagamento</h1>
+    <p class="lead">Preencha a venda e envie o link ao cliente. O valor fica protegido: ninguém consegue alterá-lo.</p>
+    <form class="card" id="form">
+      <div class="grid">
+        <label class="f"><span>Serviço</span><input class="in" id="servico" list="servicos" placeholder="Ex.: Site institucional" required></label>
+        <label class="f"><span>Cliente <em>(opcional)</em></span><input class="in" id="cliente" placeholder="Nome do cliente"></label>
+        <label class="f full"><span>Descrição <em>(opcional)</em></span><textarea class="in" id="descricao" placeholder="Ex.: Site com 5 páginas, domínio e hospedagem por 12 meses"></textarea></label>
+        <label class="f"><span>Valor total</span><div class="money"><input class="in" id="valor" inputmode="decimal" placeholder="0,00" required></div></label>
+        <label class="f"><span>Parcelas no cartão</span><select class="in" id="parcelas"></select></label>
+        <div class="f full" style="display:grid;gap:7px"><span style="font-size:13px;color:var(--mist)">Formas de pagamento</span>
+          <div class="checks">
+            <label class="chk"><input type="checkbox" value="pix" checked>Pix</label>
+            <label class="chk"><input type="checkbox" value="cartao" checked>Cartão</label>
+            <label class="chk"><input type="checkbox" value="boleto">Boleto</label>
+          </div>
+        </div>
+        <label class="f"><span>Desconto no Pix <em>(%)</em></span><input class="in" id="descontoPix" inputmode="decimal" placeholder="0"></label>
+        <label class="f"><span>Link válido até <em>(opcional)</em></span><input class="in" id="validade" type="date"></label>
+      </div>
+      <div class="preview" id="preview">Preencha o valor para ver o resumo.</div>
+      <div class="alert" id="err"></div>
+      <button class="btn primary" style="margin-top:18px" id="gen">Gerar link de pagamento</button>
+    </form>
+
+    <div class="out" id="out">
+      <div class="link"><code id="link"></code><button class="btn" type="button" id="copy">Copiar</button></div>
+      <div class="row">
+        <a class="btn" id="sendWa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l1.3-3.7A8 8 0 1112 20a8 8 0 01-3.7-.9z"/></svg>Enviar no WhatsApp</a>
+        <a class="btn" id="open" target="_blank" rel="noopener">Ver como o cliente</a>
+      </div>
+    </div>
+
+    <div id="histBox" hidden>
+      <div class="h">Últimos links</div>
+      <div class="hist" id="hist"></div>
+    </div>
+  </section>
+</div>
+<datalist id="servicos">
+  <option>Site institucional</option><option>Landing page</option><option>Aplicativo</option><option>Tráfego pago</option>
+  <option>Social Media</option><option>Webdesign</option><option>Design e branding</option><option>Geração de leads</option>
+  <option>Edição de vídeo</option><option>Estratégia de marketing</option><option>Pacote Marketing 360°</option>
+</datalist>
+<div class="toast" id="toast"></div>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const BRL = (n) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const store = {
+    get(k, d) { try { return JSON.parse(sessionStorage.getItem(k) ?? localStorage.getItem(k)) ?? d; } catch { return d; } },
+    set(k, v, s) { try { (s ? sessionStorage : localStorage).setItem(k, JSON.stringify(v)); } catch {} },
+  };
+  let senha = store.get('id_ck_s', '');
+
+  for (let n = 1; n <= 12; n++) { const o = document.createElement('option'); o.value = n; o.textContent = n === 1 ? 'Somente à vista' : `Até ${n}x sem juros`; $('parcelas').appendChild(o); }
+  $('parcelas').value = 12;
+
+  const api = async (body) => {
+    const r = await fetch('/api/checkout/link', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ senha, ...body }) });
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok) { const e = new Error(d.erro || 'Erro inesperado.'); e.status = r.status; throw e; }
+    return d;
+  };
+
+  function enter(d) {
+    $('login').hidden = true; $('app').hidden = false;
+    $('env').textContent = d.sandbox ? 'Modo de teste' : 'Recebendo de verdade';
+    $('env').className = 'badge ' + (d.sandbox ? 'test' : 'live');
+    renderHist();
+  }
+
+  if (senha) api({ verificar: true }).then(enter).catch(() => { senha = ''; });
+
+  $('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    senha = $('senha').value; $('loginBtn').disabled = true; $('loginErr').classList.remove('on');
+    try { const d = await api({ verificar: true }); store.set('id_ck_s', senha, true); enter(d); }
+    catch (err) { $('loginErr').textContent = err.message; $('loginErr').classList.add('on'); }
+    finally { $('loginBtn').disabled = false; }
+  });
+
+  const valor = () => Number($('valor').value.replace(/\./g, '').replace(',', '.')) || 0;
+  $('valor').addEventListener('input', () => {
+    const d = $('valor').value.replace(/\D/g, '').replace(/^0+/, '');
+    $('valor').value = d ? (Number(d) / 100).toLocaleString('pt-BR', { minimumFractionDigits: 2 }) : '';
+    preview();
+  });
+  ['parcelas', 'descontoPix'].forEach((id) => $(id).addEventListener('input', preview));
+  document.querySelectorAll('.chk input').forEach((c) => c.addEventListener('change', preview));
+  const metodos = () => [...document.querySelectorAll('.chk input:checked')].map((c) => c.value);
+
+  function preview() {
+    const v = valor(), n = +$('parcelas').value, x = Number($('descontoPix').value.replace(',', '.')) || 0, m = metodos();
+    if (!v) return ($('preview').textContent = 'Preencha o valor para ver o resumo.');
+    const parts = [`O cliente verá <b>${BRL(v)}</b>`];
+    if (m.includes('cartao') && n > 1) parts.push(`ou <b>${n}x de ${BRL(v / n)}</b> no cartão`);
+    if (m.includes('pix') && x > 0) parts.push(`e <b>${BRL(Math.round(v * (100 - x)) / 100)}</b> no Pix`);
+    $('preview').innerHTML = parts.join(' ') + '.' + (m.includes('cartao') && n > 1 ? '<br><span style="color:var(--dim)">As taxas do parcelamento ficam por conta da agência.</span>' : '');
+  }
+
+  $('form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    $('err').classList.remove('on'); $('gen').disabled = true;
+    try {
+      const d = await api({
+        servico: $('servico').value, cliente: $('cliente').value, descricao: $('descricao').value,
+        valor: valor(), parcelas: +$('parcelas').value, metodos: metodos(),
+        descontoPix: Number($('descontoPix').value.replace(',', '.')) || 0, validade: $('validade').value,
+      });
+      show(d.link, $('cliente').value, $('servico').value, valor());
+      const h = store.get('id_ck_h', []);
+      h.unshift({ l: d.link, c: $('cliente').value, s: $('servico').value, v: valor() });
+      store.set('id_ck_h', h.slice(0, 8)); renderHist();
+    } catch (err) {
+      if (err.status === 401) { senha = ''; store.set('id_ck_s', '', true); }
+      $('err').textContent = err.message; $('err').classList.add('on');
+    } finally { $('gen').disabled = false; }
+  });
+
+  function show(link, cliente, servico, v) {
+    $('link').textContent = link; $('open').href = link;
+    const first = (cliente || '').split(' ')[0];
+    const msg = `Olá${first ? ', ' + first : ''}! Aqui está o link para pagamento do seu ${servico} com a Identidade Digital (${BRL(v)}). É só abrir e escolher entre Pix, cartão ou boleto:\n\n${link}`;
+    $('sendWa').href = 'https://wa.me/?text=' + encodeURIComponent(msg);
+    $('copy').onclick = async () => { try { await navigator.clipboard.writeText(link); } catch {} toast('Link copiado'); };
+    $('out').classList.add('on'); $('out').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function renderHist() {
+    const h = store.get('id_ck_h', []);
+    $('histBox').hidden = !h.length;
+    $('hist').innerHTML = '';
+    h.forEach((i) => {
+      const row = document.createElement('div');
+      const s = document.createElement('span'); s.textContent = `${i.s}${i.c ? ' · ' + i.c : ''} · ${BRL(i.v)}`;
+      const b = document.createElement('button'); b.type = 'button'; b.textContent = 'Copiar';
+      b.onclick = async () => { try { await navigator.clipboard.writeText(i.l); } catch {} toast('Link copiado'); };
+      row.append(s, b); $('hist').appendChild(row);
+    });
+  }
+
+  function toast(t) { const el = $('toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('on'), 2000); }
+})();
+</script>
+</body>
+</html>
